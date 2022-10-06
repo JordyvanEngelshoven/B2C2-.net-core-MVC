@@ -15,13 +15,12 @@ namespace B2C2_.net_core_MVC.Models
         public int CameraRichting { get; set; }
 
         [Microsoft.Build.Framework.Required]
-        public float Latitude { get; set; }
+        public string Latitude { get; set; }
 
         [Microsoft.Build.Framework.Required]
-        public float Longitude { get; set; }
+        public string Longitude { get; set; }
 
         [Microsoft.Build.Framework.Required]
         public int GeplaatstDoor { get; set; } 
-
     }
 }

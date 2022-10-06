@@ -1,0 +1,111 @@
+﻿@using System.Globalization
+@model IEnumerable<B2C2_.net_core_MVC.Models.Camera>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+        crossorigin=""></script>
+
+
+<div id="map" style="width: 1200px; height: 800px; position: relative;"></div>
+
+<script>
+    var map = L.map('map').setView([52.187405, 5.427246], 7);
+
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 7,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    function onMapClick(e) {
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent('You clicked the map at ' + e.latlng.toString())
+            .openOn(map);
+    }
+
+    map.on('click', onMapClick);
+
+</script>
+
+@{
+
+
+    foreach (var item in Model)
+    {
+        string markers = "L.marker([" + Convert.ToString(item.Latitude, CultureInfo.InvariantCulture) + ", " + Convert.ToString(item.Longitude, CultureInfo.InvariantCulture) + "]).addTo(map);";
+
+    <script>
+        var marker = @markers
+        marker.bindPopup("<b>Merk:</b> @item.CameraMerk<br><b>Type:</b> @item.CameraType<br><b>Geplaatst door: </b> gebruiker @item.GeplaatstDoor")
+        </script>
+
+    }
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraMerk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraRichting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeplaatstDoor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraMerk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraRichting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeplaatstDoor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CameraId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CameraId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CameraId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+

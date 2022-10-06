@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:B2C2_net_core_MVCContextConnection"
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 namespace B2C2_.net_core_MVC.Migrations
 {
-    public partial class AddFotoToDataBase : Migration
+    public partial class AddBeheerderToDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

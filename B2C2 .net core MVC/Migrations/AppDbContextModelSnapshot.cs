@@ -44,11 +44,13 @@ namespace B2C2_.net_core_MVC.Migrations
                     b.Property<int>("GeplaatstDoor")
                         .HasColumnType("int");
 
-                    b.Property<float>("Latitude")
-                        .HasColumnType("real");
+                    b.Property<string>("Latitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Longitude")
-                        .HasColumnType("real");
+                    b.Property<string>("Longitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CameraId");
 

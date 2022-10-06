@@ -4,7 +4,7 @@
 
 namespace B2C2_.net_core_MVC.Migrations
 {
-    public partial class AddBeheerderToDataBase : Migration
+    public partial class AddGebruikerToDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

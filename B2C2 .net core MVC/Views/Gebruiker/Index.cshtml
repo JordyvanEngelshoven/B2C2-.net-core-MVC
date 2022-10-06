@@ -1,0 +1,119 @@
+﻿@model IEnumerable<B2C2_.net_core_MVC.Models.Gebruiker>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inlogpagina</h1>
+
+<style>
+    <a href="#" class="bigbutton" > turquoise</a >
+
+    .bigbutton {
+        box-shadow: 0px 10px 14px -7px #276873;
+        background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        background-color: #599bb3;
+        border-radius: 39px;
+        border: 1px solid #29668f;
+        display: inline-block;
+        cursor: pointer;
+        color: #599bb3;
+        font-family: Arial;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 21px 76px;
+        text-decoration: none;
+        text-shadow: 0px 0px 0px #3d768a;
+        align-self: center;
+        text-align: center;
+    }
+
+    .bigbutton:hover {
+        background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color: #408c99;
+    }
+
+    .bigbutton:active {
+        position: relative;
+        top: 1px;
+    }
+    h1 {text-align: center;}
+    h2 {text-align:center}
+
+    .Example-btn2 {
+        position:relative;
+        background-color: #1877f2;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        flex-grow: 1;
+        font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        height: 36px;
+        line-height: 20px;
+        margin: 5px auto;
+        min-width: 185px;
+        padding: 0 16px 0 16px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+        .Example-btn2:hover {
+            background-color: #e4e6eb;
+            color: #050505;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .container1{
+        background: #8F8F8F;
+        border-radius:25px;
+        padding:20px;
+        width:auto;
+        height:auto;
+        position: relative;
+    }
+    span.a {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;  
+  background-color: yellow; 
+}
+</style>
+
+<script>
+    function register{
+        <form asp-controller=>
+    }
+</script>
+
+<body>
+    <div class="container">
+        <div class="center" style="text-align:center;">
+            <h3>Voor onze bestaande leden</h3>
+            <button class="Example-btn2" >Log in</button>
+            <h3>Nog geen lid?</h3>
+            <input class=Example-btn2 type="button" value="Registreer hier" onclick="location.href='@Url.Action("Create", "Gebruiker")'" />
+        </div>
+    </div>
+</body>
+
+

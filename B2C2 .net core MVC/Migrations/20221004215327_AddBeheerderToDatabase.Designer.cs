@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B2C2_.net_core_MVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220922201959_AddBeheerderToDataBase")]
-    partial class AddBeheerderToDataBase
+    [Migration("20221004215327_AddBeheerderToDatabase")]
+    partial class AddBeheerderToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,11 +46,13 @@ namespace B2C2_.net_core_MVC.Migrations
                     b.Property<int>("GeplaatstDoor")
                         .HasColumnType("int");
 
-                    b.Property<float>("Latitude")
-                        .HasColumnType("real");
+                    b.Property<string>("Latitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Longitude")
-                        .HasColumnType("real");
+                    b.Property<string>("Longitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CameraId");
 

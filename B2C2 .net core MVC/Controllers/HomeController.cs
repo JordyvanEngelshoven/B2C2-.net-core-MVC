@@ -28,6 +28,16 @@ namespace B2C2_.net_core_MVC.Controllers
             return View();
         }
 
+        public IActionResult Gebruiker()
+        {
+            return View();
+        }
+
+        public IActionResult Camera()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
