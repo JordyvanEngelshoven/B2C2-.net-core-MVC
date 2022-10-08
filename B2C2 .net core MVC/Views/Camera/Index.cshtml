@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using Microsoft.AspNetCore.Identity;
 @model IEnumerable<B2C2_.net_core_MVC.Models.Camera>
 
 @{
@@ -14,6 +15,7 @@
 
 <div id="map" style="width: 1200px; height: 800px; position: relative;"></div>
 
+
 <script>
     var map = L.map('map').setView([52.187405, 5.427246], 7);
 
@@ -23,9 +25,14 @@
     }).addTo(map);
 
     function onMapClick(e) {
+        var latitude = e.latlng.lat.toString();
+        var longitude = e.latlng.lng.toString();
+        var link = '@Url.Action("Create", "Camera", new{Latitude = "replace1", Longitude ="replace2"})';
+        link = link.replace("replace1", latitude);
+        link = link.replace("replace2", longitude);
         L.popup()
             .setLatLng(e.latlng)
-            .setContent('You clicked the map at ' + e.latlng.toString())
+            .setContent("<a href='" + link + "'class='button'>Plaats hier een Camera</a>")
             .openOn(map);
     }
 
@@ -35,7 +42,6 @@
 
 @{
 
-
     foreach (var item in Model)
     {
         string markers = "L.marker([" + Convert.ToString(item.Latitude, CultureInfo.InvariantCulture) + ", " + Convert.ToString(item.Longitude, CultureInfo.InvariantCulture) + "]).addTo(map);";
@@ -43,7 +49,7 @@
     <script>
         var marker = @markers
         marker.bindPopup("<b>Merk:</b> @item.CameraMerk<br><b>Type:</b> @item.CameraType<br><b>Geplaatst door: </b> gebruiker @item.GeplaatstDoor")
-        </script>
+    </script>
 
     }
 }

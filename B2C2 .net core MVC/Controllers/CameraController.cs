@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using B2C2_.net_core_MVC.Controllers.Data;
 using B2C2_.net_core_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace B2C2_.net_core_MVC.Controllers
 {
@@ -20,6 +21,7 @@ namespace B2C2_.net_core_MVC.Controllers
         }
 
         // GET: Camera
+        [Authorize]
         public async Task<IActionResult> Index()
         {
               return View(await _context.Cameras.ToListAsync());
@@ -44,7 +46,9 @@ namespace B2C2_.net_core_MVC.Controllers
         }
 
         // GET: Camera/Create
-        public IActionResult Create()
+        [HttpGet]
+        [Authorize]
+        public IActionResult Create(string Latitude, string Longitude)
         {
             return View();
         }
