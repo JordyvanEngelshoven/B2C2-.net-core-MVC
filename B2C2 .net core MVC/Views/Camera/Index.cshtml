@@ -40,6 +40,7 @@
 
 </script>
 
+
 @{
 
     foreach (var item in Model)
@@ -47,8 +48,8 @@
         string markers = "L.marker([" + Convert.ToString(item.Latitude, CultureInfo.InvariantCulture) + ", " + Convert.ToString(item.Longitude, CultureInfo.InvariantCulture) + "]).addTo(map);";
 
     <script>
-        var marker = @markers
-        marker.bindPopup("<b>Merk:</b> @item.CameraMerk<br><b>Type:</b> @item.CameraType<br><b>Geplaatst door: </b> gebruiker @item.GeplaatstDoor")
+            var marker = @markers
+            marker.bindPopup("<b>Merk:</b> @item.CameraMerk<br><b>Type:</b> @item.CameraType<br><b>Geplaatst door: </b> gebruiker @item.GeplaatstDoor")
     </script>
 
     }

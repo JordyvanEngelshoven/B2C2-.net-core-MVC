@@ -1,4 +1,7 @@
-﻿@model B2C2_.net_core_MVC.Models.Camera
+﻿@using Microsoft.AspNetCore.Identity;
+@model B2C2_.net_core_MVC.Models.Camera
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Create";
@@ -8,7 +11,7 @@
 
 <h4>Camera</h4>
 <hr />
-<div class="row" style="position:absolute">
+<div class="row>
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -39,8 +42,39 @@
             </div>
             <div class="form-group">
                 <label asp-for="GeplaatstDoor" class="control-label"></label>
-                <input asp-for="GeplaatstDoor" class="form-control" />
+                <input asp-for="GeplaatstDoor" class="form-control" value="@User.Identity.Name" />
                 <span asp-validation-for="GeplaatstDoor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Upload hier een foto</label>
+                <input class="form-control" type="file" id="file"/>
+                <img src="https://i.imgur.com/U7afLiO.png" id="img" height="200px">
+    <br />
+    <input type="file" id="file">
+    <br />
+    <strong>
+        <p id="url"></p>
+    </strong>
+
+    <script>
+        const file = document.getElementById("file")
+        const img = document.getElementById("img")
+        const url = document.getElementById("url")
+        file.addEventListener("change", ev => {
+            const formdata = new FormData()
+            formdata.append("image", ev.target.files[0])
+            fetch("https://api.imgur.com/3/image/", {
+                method: "post",
+                headers: {
+                    Authorization: "Client-ID a8a300968ee1042"
+                },
+                body: formdata
+            }).then(data => data.json()).then(data => {
+                img.src = data.data.link
+                url.innerText = data.data.link
+            })
+        })
+    </script>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

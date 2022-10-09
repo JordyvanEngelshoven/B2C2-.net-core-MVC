@@ -17,6 +17,11 @@ a {
   border-color: #1861ac;
 }
 
+#hp {
+    float: right;
+    margin: 0 0 0 15px;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -74,4 +79,10 @@ button.accept-policy {
 .bigbutton:active {
     position: relative;
     top: 1px;
+}
+
+.container1 {
+    width: 320px;
+    padding: 10px;
+    margin: 0;
 }

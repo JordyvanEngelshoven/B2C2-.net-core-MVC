@@ -21,6 +21,6 @@ namespace B2C2_.net_core_MVC.Models
         public string Longitude { get; set; }
 
         [Microsoft.Build.Framework.Required]
-        public int GeplaatstDoor { get; set; } 
+        public string GeplaatstDoor { get; set; } 
     }
 }

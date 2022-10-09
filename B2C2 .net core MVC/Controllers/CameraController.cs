@@ -20,6 +20,7 @@ namespace B2C2_.net_core_MVC.Controllers
             _context = context;
         }
 
+
         // GET: Camera
         [Authorize]
         public async Task<IActionResult> Index()
